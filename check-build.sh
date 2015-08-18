@@ -16,13 +16,12 @@ proc ModulesHelp { } {
    puts stderr "\tAdds OpenMPI 1.8.8 to your environment"
 }
 
-module load gcc/4.8.2
-#module load pbs
-#module load slurm
+module load gcc/5.2.0
+module load torque/2.5.13
 
 module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION
-set          OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 
 prepend-path 	PATH            $OPENMPI_DIR/bin
 prepend-path    PATH            $OPENMPI_DIR/include
@@ -37,7 +36,7 @@ cp modules/$VERSION $LIBRARIES_MODULES/$NAME/$VERSION
 # Testing module
 module avail
 module list
-module add $NAME
+module load $NAME
 # confirm openmpi
 which mpirun
 

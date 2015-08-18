@@ -10,10 +10,9 @@ VERSION="1.8.8"
 SOURCE_FILE="$NAME-$VERSION.tar.gz"
 
 module load ci
-module load gcc/4.8.2
+module load gcc/5.2.0
 # Need to load a scheduler
-module load pbs
-module load slurm
+module load torque/2.5.13
 
 echo "REPO_DIR is "
 echo $REPO_DIR
@@ -35,16 +34,15 @@ if [[ ! -e $SRC_DIR/$SOURCE_FILE ]] ; then
   mkdir -p $SRC_DIR
   wget $SOURCE_REPO/$SOURCE_FILE -O $SRC_DIR/$SOURCE_FILE
   tar -xvzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE  
+  cd $WORKSPACE/$NAME-$VERSION
 else
   echo "continuing from previous builds, using source at " $SRC_DIR/$SOURCE_FILE
+  cd $WORKSPACE/$NAME-$VERSION
+  echo "cleaning up previous builds"
+  make distclean
 fi
 
-echo "change to working directory"
-cd $WORKSPACE/$NAME-$VERSION
-
-echo "cleaning up previous builds"
-make distclean
 echo "Configuring the build"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm=????
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
 echo "Running the build"
 make all
