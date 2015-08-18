@@ -23,20 +23,20 @@ module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION
 setenv       OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 
-prepend-path 	PATH            $::env(OPENMPI_DIR)/bin
+prepend-path 	 PATH            $::env(OPENMPI_DIR)/bin
 prepend-path    PATH            $::env(OPENMPI_DIR)/include
 prepend-path    PATH            $::env(OPENMPI_DIR)/bin
 prepend-path    MANPATH         $::env(OPENMPI_DIR)/man
 prepend-path    LD_LIBRARY_PATH $::env(OPENMPI_DIR)/lib
 MODULE_FILE
-) > modules/$VERSION
+) > modules/$VERSION-gcc-$GCC_VERSION
 mkdir -p $LIBRARIES_MODULES/$NAME
-cp modules/$VERSION $LIBRARIES_MODULES/$NAME/$VERSION
+cp modules/$VERSION-gcc-$GCC_VERSION $LIBRARIES_MODULES/$NAME/$VERSION-gcc-$VERSION
 
 # Testing module
 module avail
 module list
-module load $NAME
+module load $NAME/$VERSION-gcc-$GCC_VERSION
 # confirm openmpi
 which mpirun
 
