@@ -1,5 +1,8 @@
+[![Build Status](http://ci.sagrid.ac.za:8080/buildStatus/icon?job=OpenMPI)](http://ci.sagrid.ac.za:8080/job/OpenMPI/)
+
 # OpenMPI-deploy
 A repository containing openmpi-1.8.8 installation used by Jenkins
+
 
 # how to use this repo
 
