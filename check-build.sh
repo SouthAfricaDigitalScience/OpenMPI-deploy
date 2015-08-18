@@ -16,18 +16,18 @@ proc ModulesHelp { } {
    puts stderr "\tAdds OpenMPI 1.8.8 to your environment"
 }
 
-module load gcc/5.2.0
+module load gcc/$GCC_VERSION
 module load torque/2.5.13
 
 module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION
 setenv       OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 
-prepend-path 	PATH            $OPENMPI_DIR/bin
-prepend-path    PATH            $OPENMPI_DIR/include
-prepend-path    PATH            $OPENMPI_DIR/bin
-prepend-path    MANPATH         $OPENMPI_DIR/man
-prepend-path    LD_LIBRARY_PATH $OPENMPI_DIR/lib
+prepend-path 	PATH            $::env(OPENMPI_DIR)/bin
+prepend-path    PATH            $::env(OPENMPI_DIR)/include
+prepend-path    PATH            $::env(OPENMPI_DIR)/bin
+prepend-path    MANPATH         $::env(OPENMPI_DIR)/man
+prepend-path    LD_LIBRARY_PATH $::env(OPENMPI_DIR)/lib
 MODULE_FILE
 ) > modules/$VERSION
 mkdir -p $LIBRARIES_MODULES/$NAME

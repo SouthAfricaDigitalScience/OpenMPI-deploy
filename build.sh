@@ -10,7 +10,7 @@ VERSION="1.8.8"
 SOURCE_FILE="$NAME-$VERSION.tar.gz"
 
 module load ci
-module load gcc/5.2.0
+module load gcc/$GCC_VERSION
 # Need to load a scheduler
 module load torque/2.5.13
 
@@ -33,14 +33,12 @@ if [[ ! -e $SRC_DIR/$SOURCE_FILE ]] ; then
   echo "seems like this is the first build - Let's get the $SOURCE_FILE from $SOURCE_REPO and unarchive to $WORKSPACE"
   mkdir -p $SRC_DIR
   wget $SOURCE_REPO/$SOURCE_FILE -O $SRC_DIR/$SOURCE_FILE
-  tar -xvzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE  
-  cd $WORKSPACE/$NAME-$VERSION
 else
   echo "continuing from previous builds, using source at " $SRC_DIR/$SOURCE_FILE
-  cd $WORKSPACE/$NAME-$VERSION
-  echo "cleaning up previous builds"
-  make distclean
 fi
+
+tar -xvzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
+cd $WORKSPACE/$NAME-$VERSION
 
 echo "Configuring the build"
 FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm

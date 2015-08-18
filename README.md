@@ -15,7 +15,7 @@ These define basically two test phases, the **build** and **functional** test ph
 
 The build phase does the following things
 
-  1. Set up the build environment variables, loads gcc-5.2 and torque-2.5.13
+  1. Set up the build environment variables, loads gcc-4.9/5.2 and torque-2.5.13
   2. Downloads the source code using `wget`
   3. Configure the build with option `--enable-heterogeneous`, `--enable-mpi-thread-mutliple`, `--with-tm`
   4. Compile the source into an executable form.
