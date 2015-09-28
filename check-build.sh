@@ -39,6 +39,3 @@ module list
 module load $NAME/$VERSION-gcc-$GCC_VERSION
 # confirm openmpi
 which mpirun
-
-# Test installation
-
