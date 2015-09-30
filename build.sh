@@ -52,3 +52,6 @@ echo "Configuring the build"
 FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
 echo "Running the build"
 make all
+#Unload the current GCC version
+echo "unload the current gcc verion - $GCC_VERSION"
+module unload gcc/$GCC_VERSION
