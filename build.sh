@@ -13,6 +13,10 @@ module load ci
 module load gcc/$GCC_VERSION
 # Need to load a scheduler
 module load torque/2.5.13
+#list modules
+# we should be seeing ci, all gcc-versions and torque
+echo "List all loaded modules"
+module list
 
 echo "REPO_DIR is "
 echo $REPO_DIR
@@ -40,6 +44,10 @@ fi
 tar -xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
 cd $WORKSPACE/$NAME-$VERSION
 
+echo "GCC Version being used"
+echo `which gfortran`
+echo `which gcc`
+echo `which g++`
 echo "Configuring the build"
 FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
 echo "Running the build"
