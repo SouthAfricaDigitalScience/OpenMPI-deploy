@@ -12,7 +12,7 @@ SOURCE_FILE="$NAME-$VERSION.tar.gz"
 module load ci
 module load gcc/$GCC_VERSION
 # Need to load a scheduler
-module load torque/2.5.13
+module load torque/2.5.13-gcc-${GCC_VERSION}
 
 echo "REPO_DIR is "
 echo $REPO_DIR
