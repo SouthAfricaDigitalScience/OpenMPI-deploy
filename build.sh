@@ -10,6 +10,7 @@ VERSION="1.8.8"
 SOURCE_FILE="$NAME-$VERSION.tar.gz"
 
 module load ci
+module load torque/2.5.13
 module load gcc/$GCC_VERSION
 #list modules
 # we should be seeing ci, all gcc-versions and torque
@@ -43,6 +44,6 @@ tar -xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
 cd $WORKSPACE/$NAME-$VERSION
 
 echo "Configuring the build"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
 echo "Running the build"
 make all
