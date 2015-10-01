@@ -10,6 +10,8 @@ VERSION="1.8.8"
 SOURCE_FILE="$NAME-$VERSION.tar.gz"
 
 module load ci
+echo "List all modules loaded after loading ci before loading application specific modules"
+module list
 module load gcc/$GCC_VERSION
 # Need to load a scheduler
 module load torque/2.5.13
