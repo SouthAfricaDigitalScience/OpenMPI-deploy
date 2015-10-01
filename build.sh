@@ -11,8 +11,10 @@ SOURCE_FILE="$NAME-$VERSION.tar.gz"
 
 module load ci
 module load gcc/$GCC_VERSION
-# Need to load a scheduler
-module load torque/2.5.13-gcc-${GCC_VERSION}
+#list modules
+# we should be seeing ci, all gcc-versions and torque
+echo "List all loaded modules"
+module list
 
 echo "REPO_DIR is "
 echo $REPO_DIR

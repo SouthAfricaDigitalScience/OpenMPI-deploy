@@ -16,8 +16,8 @@ proc ModulesHelp { } {
    puts stderr "\tAdds OpenMPI 1.8.8 to your environment"
 }
 
-module load gcc/$GCC_VERSION
 module load torque/2.5.13
+module load gcc/$GCC_VERSION
 
 module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION
