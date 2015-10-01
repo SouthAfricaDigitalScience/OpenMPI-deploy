@@ -43,6 +43,6 @@ tar -xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
 cd $WORKSPACE/$NAME-$VERSION
 
 echo "Configuring the build"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple
 echo "Running the build"
 make all
