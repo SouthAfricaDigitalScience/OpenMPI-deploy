@@ -14,7 +14,7 @@ echo "List all modules loaded after loading ci before loading application specif
 module list
 # Need to load a scheduler
 module load torque/2.5.13
-module load gcc/4.8.4
+module load gcc/$GCC_VERSION
 #list modules
 # we should be seeing ci, all gcc-versions and torque
 echo "List all loaded modules"
@@ -51,9 +51,9 @@ echo `which gfortran`
 echo `which gcc`
 echo `which g++`
 echo "Configuring the build"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-4.8.4 --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}/gcc-$GCC_VERSION --enable-heterogeneous --enable-mpi-thread-multiple --with-tm
 echo "Running the build"
 make all
 #Unload the current GCC version
 echo "unload the current gcc verion - $GCC_VERSION"
-module unload gcc/4.8.4
+module unload gcc/$GCC_VERSION
