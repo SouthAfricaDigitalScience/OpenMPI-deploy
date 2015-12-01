@@ -1,10 +1,19 @@
+#!/bin/bash -e
+. /etc/profile.d/modules.sh
+
 module load ci
 echo "About to make the modules"
 cd $WORKSPACE/$NAME-$VERSION
 ls
 echo $?
 
+echo "running make check"
+make check
+
+echo "running make install"
 make install # DESTDIR=$SOFT_DIR
+
+mkdir -p ${REPO_DIR}
 
 mkdir -p modules
 (
