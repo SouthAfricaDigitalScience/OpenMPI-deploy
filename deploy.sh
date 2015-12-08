@@ -34,7 +34,7 @@ module add mpfr
 module add mpc
 module add ncurses
 module add gcc/${GCC_VERSION}
-module add torque/2.5.13-${GCC_VERSION}
+module add torque/2.5.13-gcc-${GCC_VERSION}
 
 module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION
@@ -52,6 +52,12 @@ MODULE_FILE
 # Testing module
 module avail
 module list
+module add gmp
+module add mpfr
+module add mpc
+module add ncurses
+module add gcc/${GCC_VERSION}
+module add torque/2.5.13-gcc-${GCC_VERSION}
 module add ${NAME}/${VERSION}-gcc-${GCC_VERSION}
 echo "PATH is : $PATH"
 echo "LD_LIBRARY_PATH is $LD_LIBRARY_PATH"
