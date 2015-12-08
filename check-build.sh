@@ -9,7 +9,7 @@ module add ncurses
 module load gcc/${GCC_VERSION}
 module add torque/2.5.13-gcc-${GCC_VERSION}
 echo "About to make the modules"
-cd ${WORKSPACE}/gcc-${GCC_VERSION}/${NAME}-${VERSION}
+cd ${WORKSPACE}/${NAME}-${VERSION}
 ls
 echo $?
 

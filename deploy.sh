@@ -12,7 +12,7 @@ module add gcc/${GCC_VERSION}
 module add torque/2.5.13-${GCC_VERSION}
 
 echo ${SOFT_DIR}
-cd ${WORKSPACE}/gcc-${GCC_VERSION}/${NAME}-${VERSION}
+cd ${WORKSPACE}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}-gcc-${GCC_VERSION}"
 echo "Configuring the deploy"
 FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm=${TORQUE_DIR}

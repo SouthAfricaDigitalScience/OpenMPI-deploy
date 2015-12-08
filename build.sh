@@ -33,7 +33,7 @@ echo ${WORKSPACE}
 echo "SOFT_DIR is"
 echo ${SOFT_DIR}
 
-mkdir -p ${WORKSPACE}/gcc-${GCC_VERSION}
+mkdir -p ${WORKSPACE}
 mkdir -p ${SRC_DIR}
 mkdir -p ${SOFT_DIR}
 
@@ -56,8 +56,8 @@ else
   echo "continuing from previous builds, using source at " ${SRC_DIR}/${SOURCE_FILE}
 fi
 
-tar -xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}/gcc-${GCC_VERSION} --skip-old-files
-cd ${WORKSPACE}/gcc-${GCC_VERSION}/${NAME}-${VERSION}
+tar -xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
+cd ${WORKSPACE}/${NAME}-${VERSION}
 
 echo "Configuring the build"
 FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm=${TORQUE_DIR}
