@@ -7,7 +7,6 @@
 SOURCE_REPO="http://www.open-mpi.org/software/ompi/v1.8/downloads/"
 # We pretend that the $SOURCE_FILE is there, even though it's actually a dir.
 NAME="openmpi"
-VERSION="1.8.8"
 SOURCE_FILE="${NAME}-${VERSION}.tar.gz"
 
 module load ci
