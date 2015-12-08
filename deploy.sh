@@ -9,7 +9,7 @@ module add mpfr
 module add mpc
 module add ncurses
 module add gcc/${GCC_VERSION}
-module add torque/2.5.13-${GCC_VERSION}
+module add torque/2.5.13-gcc-${GCC_VERSION}
 
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
