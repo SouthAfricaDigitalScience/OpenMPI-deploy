@@ -17,7 +17,7 @@ module add mpfr
 module add mpc
 module add ncurses
 module load gcc/${GCC_VERSION}
-module add torque
+module add torque/2.5.13-gcc-${GCC_VERSION}
 
 #list modules
 # we should be seeing ci, all gcc-versions and torque

@@ -3,6 +3,14 @@
 . /etc/profile.d/modules.sh
 echo ${SOFT_DIR}
 module add deploy
+
+module add gmp
+module add mpfr
+module add mpc
+module add ncurses
+module add gcc/${GCC_VERSION}
+module add torque/2.5.13-${GCC_VERSION}
+
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/gcc-${GCC_VERSION}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}-gcc-${GCC_VERSION}"
@@ -26,7 +34,7 @@ module add mpfr
 module add mpc
 module add ncurses
 module add gcc/${GCC_VERSION}
-module add torque/2.5.13
+module add torque/2.5.13-${GCC_VERSION}
 
 module-whatis   "$NAME $VERSION."
 setenv       OPENMPI_VERSION       $VERSION

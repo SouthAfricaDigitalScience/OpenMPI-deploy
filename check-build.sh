@@ -7,7 +7,7 @@ module add mpfr
 module add mpc
 module add ncurses
 module load gcc/${GCC_VERSION}
-module add torque
+module add torque/2.5.13-gcc-${GCC_VERSION}
 echo "About to make the modules"
 cd ${WORKSPACE}/gcc-${GCC_VERSION}/${NAME}-${VERSION}
 ls
