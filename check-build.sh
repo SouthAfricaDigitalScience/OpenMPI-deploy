@@ -23,16 +23,16 @@ cat <<MODULE_FILE
 ## $NAME modulefile
 ##
 proc ModulesHelp { } {
-   puts stderr "\tAdds OpenMPI 1.8.8 to your environment"
+   puts stderr "\tAdds OpenMPI ${OPENMPI_VERSION} to your environment"
 }
 module add gmp
 module add mpfr
 module add mpc
 module add ncurses
 module add gcc/${GCC_VERSION}
-module add torque/2.5.13
+module add torque/2.5.13-gcc-${GCC_VERSION}
 
-module-whatis   "$NAME $VERSION."
+module-whatis   "$NAME $VERSION. compiled for GCC ${GCC_VERSION}"
 setenv       OPENMPI_VERSION       $VERSION
 setenv       OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
 
