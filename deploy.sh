@@ -15,7 +15,10 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}-gcc-${GCC_VERSION}"
 echo "Configuring the deploy"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} --enable-heterogeneous --enable-mpi-thread-multiple --with-tm=${TORQUE_DIR}
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} \
+ --enable-heterogeneous \
+ --enable-mpi-thread-multiple \
+ --with-tm=${TORQUE_DIR}
 
 make install
 echo "Creating the modules file directory ${LIBRARIES_MODULES}"
