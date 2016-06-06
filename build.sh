@@ -4,7 +4,9 @@
 # We will build the code from the github repo, but if we want specific versions,
 # a new Jenkins job will be created for the version number and we'll provide
 # the URL to the tarball in the configuration.
-VERSION_MAJOR=${VERSION:0:3}
+
+IFS='.' read -r -a array <<< "$VERSION"
+VERSION_MAJOR=${array[1]}
 
 SOURCE_REPO="http://www.open-mpi.org/software/ompi/v${VERSION_MAJOR}/downloads/"
 # We pretend that the $SOURCE_FILE is there, even though it's actually a dir.
@@ -61,7 +63,7 @@ tar -xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 cd ${WORKSPACE}/${NAME}-${VERSION}
 
 echo "Configuring the build"
-FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION} \
+FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} \
  --enable-heterogeneous \
  --enable-mpi-thread-multiple \
  --with-tm=${TORQUE_DIR}
