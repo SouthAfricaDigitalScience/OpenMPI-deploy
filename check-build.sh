@@ -13,7 +13,7 @@ cd ${WORKSPACE}/${NAME}-${VERSION}
 ls
 echo $?
 
-echo "Installing into CI (apprepo)"
+echo "Installing into CI"
 make install
 
 mkdir -p modules
@@ -33,14 +33,14 @@ module add gcc/${GCC_VERSION}
 module add torque/2.5.13-gcc-${GCC_VERSION}
 
 module-whatis   "$NAME $VERSION. compiled for GCC ${GCC_VERSION}"
-setenv       OPENMPI_VERSION       $VERSION
-setenv       OPENMPI_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
+setenv       OPENMPI_VERSION          $VERSION
+setenv       OPENMPI_DIR                  /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
 
-prepend-path 	 PATH            $::env(OPENMPI_DIR)/bin
-prepend-path    PATH            $::env(OPENMPI_DIR)/include
-prepend-path    PATH            $::env(OPENMPI_DIR)/bin
-prepend-path    MANPATH         $::env(OPENMPI_DIR)/man
-prepend-path    LD_LIBRARY_PATH $::env(OPENMPI_DIR)/lib
+prepend-path 	 PATH                            $::env(OPENMPI_DIR)/bin
+prepend-path    PATH                           $::env(OPENMPI_DIR)/include
+prepend-path    PATH                           $::env(OPENMPI_DIR)/bin
+prepend-path    MANPATH                  $::env(OPENMPI_DIR)/man
+prepend-path    LD_LIBRARY_PATH   $::env(OPENMPI_DIR)/lib
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}
 mkdir -p ${LIBRARIES_MODULES}/${NAME}
