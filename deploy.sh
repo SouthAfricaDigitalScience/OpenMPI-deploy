@@ -40,13 +40,12 @@ module add gcc/${GCC_VERSION}
 module add torque/2.5.13-gcc-${GCC_VERSION}
 
 module-whatis   "$NAME $VERSION."
-setenv       OPENMPI_VERSION       $VERSION
-setenv       OPENMPI_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
-
-prepend-path 	 PATH            $::env(OPENMPI_DIR)/bin
-prepend-path    PATH            $::env(OPENMPI_DIR)/include
-prepend-path    PATH            $::env(OPENMPI_DIR)/bin
-prepend-path    MANPATH         $::env(OPENMPI_DIR)/man
+setenv               OPENMPI_VERSION       $VERSION
+setenv               OPENMPI_DIR $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
+prepend-path 	  PATH                         $::env(OPENMPI_DIR)/bin
+prepend-path    PATH                         $::env(OPENMPI_DIR)/include
+prepend-path    PATH                         $::env(OPENMPI_DIR)/bin
+prepend-path    MANPATH                $::env(OPENMPI_DIR)/man
 prepend-path    LD_LIBRARY_PATH $::env(OPENMPI_DIR)/lib
 MODULE_FILE
 ) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
