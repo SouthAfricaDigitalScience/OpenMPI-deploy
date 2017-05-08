@@ -43,8 +43,8 @@ prepend-path    MANPATH                  $::env(OPENMPI_DIR)/man
 prepend-path    LD_LIBRARY_PATH   $::env(OPENMPI_DIR)/lib
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
-cp modules/${VERSION}-gcc-${GCC_VERSION} ${LIBRARIES_MODULES}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
+mkdir -p ${COMPILERS}/${NAME}
+cp modules/${VERSION}-gcc-${GCC_VERSION} ${COMPILERS}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
 
 # Testing module
 module avail

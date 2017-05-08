@@ -21,8 +21,8 @@ FC=`which gfortran` CC=`which gcc` CXX=`which g++` ./configure --prefix=${SOFT_D
  --with-tm=${TORQUE_DIR}
 
 make install
-echo "Creating the modules file directory ${LIBRARIES_MODULES}"
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
+echo "Creating the modules file directory ${COMPILERS}"
+mkdir -p ${COMPILERS}/${NAME}
 (
 cat <<MODULE_FILE
 #%Module1.0
@@ -48,7 +48,7 @@ prepend-path    PATH                         $::env(OPENMPI_DIR)/bin
 prepend-path    MANPATH                $::env(OPENMPI_DIR)/man
 prepend-path    LD_LIBRARY_PATH $::env(OPENMPI_DIR)/lib
 MODULE_FILE
-) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
+) > ${COMPILERS}/${NAME}/${VERSION}-gcc-${GCC_VERSION}
 
 
 # Testing module
