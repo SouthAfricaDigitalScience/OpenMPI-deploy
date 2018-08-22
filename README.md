@@ -1,20 +1,34 @@
-[![Build Status](http://ci.sagrid.ac.za/job/OpenMPI/badge/icon)](http://ci.sagrid.ac.za/job/OpenMPI/)
 # OpenMPI-deploy
 
-A repository containing openmpi-1.8.8 installation used by Jenkins
+[![Build Status](https://ci.sagrid.ac.za/job/OpenMPI/badge/icon)](https://ci.sagrid.ac.za/job/OpenMPI/)
+
+A repository containing openmpi installation used by Jenkins
+
+## Versions
+
+We build version
+
+  * 3.1
+
+## Dependencies
+
+This project depends on :
+
+  * torque
+  * gcc
 
 
-# how to use this repo
+## Contents of the repo
 
-# Contents of the repo
-This repo contains two scripts
+This repo contains three scripts
 
   1. `build.sh`
   2. `check-build.sh`
+  1. `deploy.sh`
 
 These define basically two test phases, the **build** and **functional** test phases respectively.
 
-## Build Test Phase
+### Build Test Phase
 
 The build phase does the following things
 
@@ -26,7 +40,7 @@ The build phase does the following things
 
 The build phase should pass iff the expected libraries and executable files are present. **It is your responsibility to define where these files are, on a case-by-case basis**.
 
-## Functional test phase
+### Functional test phase
 
 The test phase does the following things :
 
@@ -34,6 +48,6 @@ The test phase does the following things :
   2. Installs the libraries into the `$SOFT_DIR` directory
   3. Does a small test
 
-# When things go wrong
+## When things go wrong
 
 If you have a legitimate error, or need support, please [open an issue](../../issues)
