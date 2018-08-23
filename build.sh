@@ -9,7 +9,7 @@ IFS='.' read -r -a array <<< "$VERSION"
 VERSION_MAJOR=${array[0]}
 VERSION_MINOR=${array[1]}
 
-SOURCE_REPO="http://www.open-mpi.org/software/ompi/v${VERSION_MAJOR}.${VERSION_MINOR}/downloads/"
+SOURCE_REPO="https://download.open-mpi.org/release/open-mpi/v${VERSION_MAJOR}.${VERSION_MINOR}/downloads/"
 # We pretend that the $SOURCE_FILE is there, even though it's actually a dir.
 NAME="openmpi"
 SOURCE_FILE="${NAME}-${VERSION}.tar.gz"
